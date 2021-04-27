@@ -1,0 +1,2 @@
+-Look at environment variables and 
+try to set up secret keu and make the debug_value is TRUE

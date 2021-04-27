@@ -1,0 +1,141 @@
+* {
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.loginform {
+    border: solid black;
+    width: 50%;
+}
+
+/* Navibar */
+.wrapper {
+    display: flex;
+    position: relative;
+}
+
+.wrapper .sidebar {
+    position: fixed;
+    width: 250px;
+    height: 100%;
+    background-color: lightpink; 
+}
+
+.wrapper .tenantbutton {
+    list-style-type: none;
+    list-style-position: none;
+}
+
+.wrapper .sidebar h2 {
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px;
+    padding: 20px;
+}
+
+.wrapper .sidebar li {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-top: 1px solid rgba(225,225,0,0.05);
+    
+}
+
+.wrapper .sidebar ul li a {
+    display: block;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.wrapper .sidebar li a .fas {
+    width: 30px;
+}
+
+.wrapper .sidebar li:hover {
+    background: #D8BfD8;
+}
+
+.wrapper .sidebar li:hover a {
+    color: #fff;
+}
+
+/* Tenant announcement */
+ .announcementmenu {
+    margin-left: 400px;
+    margin-top: 70px;
+}
+
+.announcementmenu select {
+    width: 200px;
+    padding: 10px;
+}
+
+.announcementmenu select option {
+    padding: 10px;
+}
+
+.announcementmenu input {
+    padding: 10px;
+    width: 400px;
+    margin-left: 100px;
+}
+
+.announcementmenu i {
+    position: absolute;
+    padding-top: 5px;
+    margin-left: 5px;
+} 
+
+.forannouncement {
+    padding: 50px;
+    margin-top: 20px;
+    display: block;
+}
+
+.announcement {
+    border-bottom: 1px solid black;
+    border-top: 0.5px solid black;
+    
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.announcement .subjectline {
+    margin-left: 100px;
+    padding: 10px;
+}
+
+.announcement .sendername {
+    margin-left: 150px;
+}
+
+.announcement .briefcontent {
+    margin-left: 100px;
+    padding: 10px;
+}
+
+.announcement .poston {
+    
+    float: right;
+}
+
+.announcement .sendtime {
+    float: right;
+}
+
+.subjectline a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.announcementavatar {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-left: 35px;
+    margin-top: -15px;
+}
+
+/* Tenant announcement page */

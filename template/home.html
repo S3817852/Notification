@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Hello world</h1>
+<h3>{{title|upper }}</h3>
+<h1>{{my_html_text|striptags|slugify }}</h1>
+<p>This is a template</p>
+<p>
+    {{ my_text}},{{my_number}},{{my_list}}
+</p>
+<ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+</ul>
+<ul>
+{% for i in my_list %}
+    {% if i == 33 %}
+    <li>{{ forloop.counter }} - {{ i|add:100 }}</li>
+    {% elif i == 38 %}
+    <li>{{ forloop.counter }} - {{ i|add:50 }}</li>
+    {% else %}
+        <li>{{ forloop.counter }} - {{ i }}</li>
+    {% endif %}
+{% endfor%}
+</ul>
+
+{% endblock %}

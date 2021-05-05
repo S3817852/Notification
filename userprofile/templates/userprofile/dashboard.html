@@ -3,28 +3,28 @@
 {% block content %}
     <h1 class="title">Dashboard</h1>
 
-    {% if userprofile.is_employer %}
-        Is employer
-        <h2 class="subtitle">Jobs</h2>
+    {% if userprofile.is_owner %}
+        
+        <h2 class="subtitle">Is owner</h2>
 
-        <a href="{% url 'add_job' %}" class="button is-success">Add job</a>
+        <a href="{% url 'add_job' %}" class="button is-success">Add announcement</a>
 
         {% for job in request.user.jobs.all %}
             <div class="job">
                 <a href="{% url 'view_dashboard_job' job.id %}">{{ job.title }} ({{ job.get_status_display }})</a>
             </div>
         {% empty %}
-            <p>You don't have any jobs yet...</p>
+            <p>You don't add any announcements yet...</p>
         {% endfor %}
     {% else %}
-        <h2 class="subtitle">Applications</h2>
-        Is job seeker
+        <h2 class="subtitle">Announcement</h2>
+        Is tenant
         {% for application in request.user.applications.all %}
             <div class="application">
                 <a href="{% url 'view_application' application.id %}">{{ application.job.title }}</a>
             </div>
         {% empty %}
-            <p>You haven't applied for any jobs yet...</p>
+            <p>You haven't received any announcements yet...</p>
         {% endfor %}
     {% endif %}
 {% endblock %}

@@ -2,23 +2,85 @@
 
 {% block content %}
     <h1 class="title">{{ job.title }} ({{ job.get_status_display }})</h1>
+    <h3>Content: </h3>
+    <p class="is-size-4">{{ job.description }}</p>
 
-    <p class="is-size-4">{{ job.short_description }}</p>
+    <!-- <p>{{ job.description }}</p> -->
 
-    <p>{{ job.long_description }}</p>
-
-    <b>Company name: </b>{{ job.company_name}}<br>
-    {% if job.company_address %}<b>Company address: </b>{{ job.company_address}}<br>{% endif %}
+    <!-- <b>Company name: </b>Hi {{ job.description}}<br> -->
+    <!-- {% if job.company_address %}<b>Company address: </b>{{ job.company_address}}<br>{% endif %}
     {% if job.company_zipcode %}<b>Company zipcode: </b>{{ job.company_zipcode}}<br>{% endif %}
     {% if job.company_place %}<b>Company place: </b>{{ job.company_place}}<br>{% endif %}
-    {% if job.company_country %}<b>Company country: </b>{{ job.company_country}}<br>{% endif %}
-    <b>Company size: </b>{{ job.get_company_size_display }}<br>
+    {% if job.company_country %}<b>Company country: </b>{{ job.company_country}}<br>{% endif %} -->
+    <!-- <b>To: </b>{{ job.get_to_display }}<br> -->
 
+        <!-- Movo to job conversation page -->
+    
     <hr>
+    <h2 class="subtitle">Comment</h2>
+        
+    {% for message in job.conversationmessages.all %}
+        {% if user.username == message.created_by.username %}
+        <!-- <p>Yes </p> -->
+        {% endif %}
+        
+        <div class="notification">
+            <b>{{ message.created_by.username }} - {{ message.created_at|timesince }} ago</b><br>
 
-    {% if job.status == 'active' %}
+            {{ message.content }}
+        </div>
+    {% empty %}
+        <p>No messages yet...</p>
+
+        <hr>
+    {% endfor %}
+    
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        <div class="field">
+            <div class="control">
+                <textarea class="textarea" placeholder="Your message" name="content" id="id_content"></textarea>
+            </div>
+        </div>
+
+        <div class="field">
+            <label>To</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Sent to ..." name="to" id="id_to"></textarea>
+                </div>
+            <!-- <div class="control">
+                <div class="select">
+                    <select name="to" v-model="to">
+                        {% for instance in object_list %}
+                            {% if instance.username != user.username %}
+                            <option value="{{ instance.id }}" selected>{{ instance }}</option>
+                            {% endif %}
+                        
+                        {% endfor %}       
+                    </select>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-success">Send</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <!-- {% for application in request.user.applications.all %}
+            <div class="application">
+                <a href="{% url 'view_application' application.id %}">Here</a>
+            </div>
+        {% empty %}
+            <p>You haven't received any announcements yet...</p> 
+    {% endfor %} -->
+    
+    <!-- {% if job.status == 'active' %}
         <a href="{% url 'apply_for_job' job.id %}" class="button is-success">Apply for job</a>
     {% else %}
         <p>This job is not available anymore!</p>
-    {% endif %}
+    {% endif %} -->
 {% endblock %}

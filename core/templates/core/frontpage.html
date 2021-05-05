@@ -1,8 +1,9 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <h2 class="subtitle has-text-centered">Newest announcement</h2>
+    <h2 class="subtitle has-text-centered">Newest announcement</h2> 
 
+    {% if request.user.is_authenticated %}
     <div class="columns">
         {% for job in jobs %}
             <div class="column is-4">
@@ -27,4 +28,8 @@
             </div>
         {% endfor %}
     </div>
+    {% endif%}
+    <hr>
+
+    
 {% endblock %}

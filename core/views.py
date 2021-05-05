@@ -17,10 +17,10 @@ def signup(request):
         if form.is_valid():
             user = form.save()
 
-            account_type = request.POST.get('account_type', 'jobseeker')
+            account_type = request.POST.get('account_type', 'owner')
 
-            if account_type == 'employer':
-                userprofile = Userprofile.objects.create(user=user, is_employer=True)
+            if account_type == 'owner':
+                userprofile = Userprofile.objects.create(user=user, is_owner=True)
                 userprofile.save()
             else:
                 userprofile = Userprofile.objects.create(user=user)

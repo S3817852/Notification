@@ -12,15 +12,25 @@
             <div class="notification">
                 <p>
                     {% if notification.notification_type == 'message' %}
-                        <a href="{% url 'notifications' %}?goto=view_application&notification={{ notification.id }}&extra_id={{ notification.extra_id }}">
-                            <strong>{{ notification.created_by.username }}</strong> sent you a message<br>
+                        <a href="{% url 'notifications' %}?goto=job_detail&notification={{ notification.id }}&extra_id={{ notification.extra_id }}">
+                            <strong>{{ notification.created_by.username }}</strong> commented on {% for instance in job_list %}
+                                                                                                {% if instance.id == notification.extra_id %}
+                                                                                                                                                 
+                                                                                                <p> {{ instance.title}}</p> 
+                                                                                                {% endif%}
+                                                                                             {% endfor%}<br>
+                            {% if not notification.is_read %} <p> Not been read yet</p>   {% endif %}
                             <small>{{ notification.created_at|timesince }} ago</small>
                         </a>
+
                     {% elif notification.notification_type == 'application' %}
-                        <a href="{% url 'notifications' %}?goto=view_application&notification={{ notification.id }}&extra_id={{ notification.extra_id }}">
-                            <strong>{{ notification.created_by.username }}</strong> applied for your job<br>
+                        <a href="{% url 'notifications' %}?goto=job_detail&notification={{ notification.id }}&extra_id={{ notification.extra_id }}">
+                            <strong>{{ notification.created_by.username }}</strong> created new annnouncement<br>
                             <small>{{ notification.created_at|timesince }} ago</small>
                         </a>
+                    {% elif notification.notification_type == 'comment' %}
+                        <p> {{ notification.created_by.username }} commented on someone's post </p>
+
                     {% endif %}
                 </p>
             </div>

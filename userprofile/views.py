@@ -9,6 +9,24 @@ from notification.utilities import create_notification
 def dashboard(request):
     return render(request, 'userprofile/dashboard.html', {'userprofile': request.user.userprofile})
 
+# @login_required
+# def view_announcement(request, job_id):
+#     if request.user.userprofile.is_owner:
+#         job = get_object_or_404(Job, pk=job_id, job__created_by=request.user)
+#     else:
+#         job = get_object_or_404(Job, pk=job_id, created_by=request.user)
+
+#     if request.method == 'POST':
+#         content = request.POST.get('content')
+#         if content:
+#             conversationmessage = ConversationMessage.objects.create(job=job, content=content, created_by=request.user)
+
+#             create_notification(request, job.created_by, 'message', extra_id=job.id)
+
+#             return redirect('view_announcement', job_id=job_id)
+#     return render(request, 'userprofile/view_announcement.html', {'userprofile': request.user.userprofile})
+
+
 @login_required
 def view_application(request, application_id):
     if request.user.userprofile.is_owner:
@@ -24,7 +42,7 @@ def view_application(request, application_id):
 
             create_notification(request, application.created_by, 'message', extra_id=application.id)
 
-            return redirect('view_application', application_id=application_id)
+            return redirect('view_application', aplication_id=application_id)
     
     return render(request, 'userprofile/view_application.html', {'application': application})
 

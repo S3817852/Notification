@@ -30,14 +30,14 @@
             </div>
 
             <div class="field">
-                <label>Short description</label>
+                <label>Description</label>
 
                 <div class="control">
-                    <textarea class="textarea" name="short_description" id="id_short_description" v-model="short_description"></textarea>
+                    <textarea class="textarea" name="description" id="id_description" v-model="description"></textarea>
                 </div>
             </div>
 
-            <div class="field">
+            <!-- <div class="field">
                 <label>Long description</label>
 
                 <div class="control">
@@ -83,14 +83,14 @@
                 <div class="control">
                     <input class="input" type="text" name="company_country" id="id_company_country">
                 </div>
-            </div>
+            </div> -->
 
             <div class="field">
-                <label>Company size</label>
+                <label>To</label>
 
                 <div class="control">
                     <div class="select">
-                        <select name="company_size" v-model="company_size">
+                        <select name="to" v-model="to">
                             <option value="">Choose size</option>
                             <option value="size_1-9">1-9</option>
                             <option value="size_10-49">10-49</option>
@@ -116,9 +116,8 @@
         data() {
             return {
                 title: '',
-                company_name: '',
-                short_description: '',
-                company_size: '',
+                description: '',
+                to: '',
                 errors: []
             }
         },
@@ -131,15 +130,15 @@
                     this.errors.push('The title field is missing!')
                 }
 
-                if (this.short_description === '') {
-                    this.errors.push('The short description field is missing!')
+                if (this.description === '') {
+                    this.errors.push('The description field is missing!')
                 }
 
-                if (this.company_name === '') {
-                    this.errors.push('The company name field is missing!')
-                }
+                // if (this.company_name === '') {
+                //     this.errors.push('The company name field is missing!')
+                // }
 
-                if (this.company_size === '') {
+                if (this.to === '') {
                     this.errors.push('The company size is missing!')
                 }
 

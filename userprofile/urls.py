@@ -5,5 +5,6 @@ from .views import dashboard, view_application, view_dashboard_job
 urlpatterns = [
     path('', dashboard, name='dashboard'),
     path('job/<int:job_id>/', view_dashboard_job, name='view_dashboard_job'),
+    # path('conversation/<int:job_id>/', view_announcement, name='view_announcement'),
     path('application/<int:application_id>/', view_application, name='view_application'),
 ]

@@ -1,2 +1,6 @@
 -Look at environment variables and 
 try to set up secret keu and make the debug_value is TRUE
+- Count comments times of 1 user.
+- Sent notification to user that used to comment on someone's posts.
+- Choose specific user.
+- Sent messages to specific user.

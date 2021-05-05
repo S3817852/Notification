@@ -26,7 +26,11 @@
 
                     {% if request.user.is_authenticated %}
                         <a href="{% url 'dashboard' %}" class="navbar-item">Dashboard</a>
-                        <a href="{% url 'notifications' %}" class="navbar-item">Notifications ({{ notifications.count }})</a>    
+                        <a href="{% url 'index' %}" class="navbar-item">Message</a>
+                        <a href="{% url 'notifications' %}" class="navbar-item">Notifications ({{ notifications.count }})</a> 
+                        
+                        <!-- Notifications-->
+                        
                     {% endif %}
                     
                     <div class="navbar-item">
@@ -45,9 +49,12 @@
         </nav>
         <!-- End Navbar -->
 
+        
+
         <!-- Main content -->
         <section class="section">
             {% block content %}
+            
             {% endblock %}
         </section>
         <!-- End Main content -->

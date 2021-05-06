@@ -1,6 +1,7 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+<img src="{{ job.image.url }}" alt="">
     <h1 class="title">{{ job.title }} ({{ job.get_status_display }})</h1>
     <h3>Content: </h3>
     <p class="is-size-4">{{ job.description }}</p>

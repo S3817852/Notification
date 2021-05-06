@@ -31,6 +31,7 @@ class Job(models.Model):
     created_by = models.ForeignKey(User, related_name='jobs', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
+    image = models.ImageField(null = True)
     status = models.CharField(max_length=20, choices=CHOICES_STATUS, default=ACTIVE)
 
     def __str__(self):

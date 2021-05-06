@@ -5,7 +5,7 @@ from .form import RegistrationForm
 
 # Create your views here.
 def index(request):
-    return render(request, "infor/tenant_sidebar.html")
+    return render(request, "home/ownermain.html")
 
 def register(request):
     form = RegistrationForm()
